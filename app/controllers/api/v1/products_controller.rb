@@ -1,13 +1,15 @@
 class Api::V1::ProductsController < ApplicationController
     before_action :check_login, only: [:create]
     before_action :check_owner, only: [:update, :destroy]
+    
     def show
-        render json: Product.find(params[:id])
-        render json: ProductSerializer.new(@product).serializable_hash
+        @product = Product.find(params[:id])
+        options = { include: [:user] }
+        render json: ProductSerializer.new(@product, options).serializable_hash
     end
 
     def index
-        render json: Product.all
+        @products = Product.all
         render json: ProductSerializer.new(@products).serializable_hash
     end
 
