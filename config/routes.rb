@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       resources :users
       resources :tokens, only: [:create]
       resources :products
-      resources :orders, only: [:index, :show]
+      resources :orders, only: [:index, :show, :create]
     end
   end
 end
