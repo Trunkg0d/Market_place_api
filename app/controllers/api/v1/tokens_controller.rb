@@ -12,7 +12,6 @@ class Api::V1::TokensController < ApplicationController
   end
 
   private
-    # Only allow a trusted parameter "white list" through.
   def user_params
     params.require(:user).permit(:email, :password)
   end

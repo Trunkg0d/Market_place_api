@@ -32,4 +32,8 @@ class Api::V1::UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:email, :password)
     end
+
+    def check_owner
+        head :forbidden unless @user.id == current_user.id
+    end
 end
