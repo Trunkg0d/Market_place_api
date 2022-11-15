@@ -10,5 +10,4 @@ class Order < ApplicationRecord
   def set_total!
     self.total = products.map(&:price).sum
   end
-  
 end
