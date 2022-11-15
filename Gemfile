@@ -48,4 +48,5 @@ group :development do
 end
 gem "jwt"
 gem 'fast_jsonapi'
+gem 'rack-cors'
 gem 'kaminari'
