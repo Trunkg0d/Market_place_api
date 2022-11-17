@@ -1,7 +1,7 @@
 class Api::V1::UsersController < ApplicationController
     def index
-        @products = Product.search(params)
-        render json: UserSerializer.new(@users).serializable_hash
+        @users = User.all
+        render json: @users
     end
 
     def show
